@@ -1,6 +1,6 @@
 'use client'
 import {useContext, useState, useEffect, createContext} from "react"
-const ThemeContext = createContext()
+const ThemeContext = createContext('light')
 
 // @ts-ignore
 export function ThemeProvider({children}) {
@@ -27,6 +27,7 @@ export function ThemeProvider({children}) {
         document.body.classList.add(theme);
     }, [theme]);
 
+    // @ts-ignore
     return (
         <ThemeContext.Provider value={{theme, toggleTheme}}>
             <div className={`app ${theme}`}>

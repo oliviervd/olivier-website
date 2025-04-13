@@ -1,6 +1,13 @@
 import {useTheme} from "@/app/context/ThemeProvider";
+import {JSX} from "react";
 
-export function ThemeToggle() {
+type ThemeContextType = {
+    theme: string;
+    toggleTheme: () => void;
+};
+
+export function ThemeToggle(): JSX.Element {
+    // @ts-ignore
     const {theme, toggleTheme} = useTheme()
 
     return (
