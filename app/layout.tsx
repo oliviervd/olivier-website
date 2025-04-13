@@ -14,10 +14,11 @@ import {ThemeProvider} from "@/app/context/ThemeProvider";
 
 export const metadata: Metadata = {
     title: "Olivier Van D'huynslager",
-    description: "Website of Olivier Van D'huynslager",
+    description: "Olivier Van D'huynslager is curator and strategist based in Gent, Belgium. Currently working at Design Museum Gent, his work is driven by the intricate relationships between digital technology and design.",
+    keywords: ["Olivier Van D'huynslager", "Curator", "curator", "design", "digital", "culture"],
     openGraph: {
         title: "Olivier Van D'huynslager",
-        description: "Website of Olivier Van D'huynslager",
+        description: "Olivier Van D'huynslager is curator and strategist based in Gent, Belgium. Currently working at Design Museum Gent, his work is driven by the intricate relationships between digital technology and design.",
         url: "https://oliviervandhuynslager.net",
         images: [
             {
