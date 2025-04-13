@@ -34,6 +34,7 @@ export default function Home() {
     const [type, setType] = useState("home")
     const [showResume, setShowResume] = useState(false);
     const [showAbout, setShowAbout] = useState(true);
+    const [scrollToID, setScrollToID] = useState(null)
 
     const resume = resumeData?.docs[0] || [];
     const globals = aboutData?.docs || [];
@@ -63,6 +64,11 @@ export default function Home() {
         setVar1(Math.floor(Math.random() * 10))
     }
 
+    function navigateToProject(id, type) {
+        toggleComponent(type)
+        setScrollToID(id)
+    }
+
     return (
         <div className={'main--container'}>
             <Header toggleComponent={toggleComponent}/>
@@ -77,11 +83,11 @@ export default function Home() {
                 {
                     !showResume && (
                         <div className={"projects__container"}>
-                            <Projects about={about} type={type} pages={pages} music={music}/>
+                            <Projects about={about} type={type} pages={pages} music={music} scrollToID={scrollToID}/>
                         </div>
                     )
                 }
-                <Resume resume={resume} globals={globals} show={showResume} about={about}/>
+                <Resume resume={resume} globals={globals} show={showResume} about={about} navigateToProject={navigateToProject}/>
             </>
             <div className={"pillar__container"}>
                 <Pillar var1={var1}/>

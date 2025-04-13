@@ -16,6 +16,34 @@ export default function Projects(props: any) {
     }, [props.pages, props.type]); // Re-run effect if library or type changes
 
 
+    useEffect(() => {
+        if (props.scrollToID) {
+            scroller(props.scrollToID); // Call scrollToID logic if provided
+        }
+    }, [props.scrollToID]); // Dependency on scrollToID ensures no infinite loop
+
+    function scroller(id) {
+        // Select element
+        const scrollToElem = document.getElementById(id);
+        const targetScrollPosition = scrollToElem.offsetTop - 5;
+
+        // Scroll to the target position
+        window.scrollTo({
+            top: targetScrollPosition,
+            behavior: "smooth",
+        });
+
+        // Remove "selected" class from all elements
+        const allElements = document.querySelectorAll(".selected");
+        allElements.forEach((element) => {
+            element.classList.remove("selected");
+            element.classList.add("index");
+        });
+
+        // Highlight selected element
+        scrollToElem.className = "selected";
+    }
+
     return(
         <div className={"projects__grid"}>
             <div id={"brief"} className={"brief"}>
