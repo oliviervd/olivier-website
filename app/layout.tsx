@@ -15,6 +15,17 @@ import {ThemeProvider} from "@/app/context/ThemeProvider";
 export const metadata: Metadata = {
     title: "Olivier Van D'huynslager",
     description: "Website of Olivier Van D'huynslager",
+    openGraph: {
+        title: "Olivier Van D'huynslager",
+        description: "Website of Olivier Van D'huynslager",
+        url: "https://oliviervandhuynslager.net",
+        images: [
+            {
+                url: "https://d3b71b8mgnztvw.cloudfront.net/headshot-dither",
+                alt: "headshot of Olivier Van D'huynslager"
+            }
+        ]
+    }
 };
 
 
