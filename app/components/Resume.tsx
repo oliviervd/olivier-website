@@ -1,6 +1,6 @@
 import serialize from "@/app/utils/serialize";
 
-export default function Resume(props) {
+export default function Resume(props: { resume: any; show: any; globals: { [x: string]: { [x: string]: string | undefined; }; }[]; navigateToProject: (arg0: any, arg1: any) => void; }) {
     // todo: add function for generating and downloading pdf?
     // function that constructs the resume based on the data in payload
     let r = props.resume;

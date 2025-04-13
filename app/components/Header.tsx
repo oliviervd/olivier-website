@@ -5,7 +5,7 @@ import { useCachedPayload } from '@/app/utils/fetchPayload';
 import {useState, useEffect} from "react"
 import {ThemeToggle} from "@/app/components/ThemeToggle";
 
-export default function Header(props) {
+export default function Header(props: { toggleComponent: (arg0: string) => void; }) {
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
     const { data: booksData, isLoading, error } = useCachedPayload(BASE_URI, 'book', 10000);
     const readingNow = booksData?.docs.filter((book) => book.reading) || [];
