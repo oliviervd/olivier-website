@@ -1,4 +1,4 @@
-export default function About(props) {
+export default function About(props: { about: any[]; } ) {
     console.log(props);
     return (
         <>
