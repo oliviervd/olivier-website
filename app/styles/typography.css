@@ -1,0 +1,46 @@
+@font-face {
+    font-family: "IBMPlexMono-Bold";
+    src: local("IBMPlexMono-Bold"), url("/fonts/IBMPlexMono-Bold.otf") format("woff")
+}
+
+@font-face {
+    font-family: "IBMPlexMono-Light";
+    src: local("IBMPlexMono-Light"), url("/fonts/IBMPlexMono-Light.otf") format("woff")
+}
+
+:root {
+    --font-size-s: 1rem;
+    --font-size-m: 1.2rem;
+    --font-size-l: 2rem;
+}
+
+@media (max-width: 1600px) {
+    :root {
+        --font-size-s: 1rem;
+        --font-size-m: 1.2rem;
+        --font-size-l: 2rem;
+    }
+}
+
+@media (max-width: 600px) {
+    :root {
+        --font-size-s: 1.2rem;
+        --font-size-m: 1.5rem;
+        --font-size-l: 1.5rem;
+    }
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    border-bottom: 1px solid orange;
+}
+
+.about > p {
+    font-size: var(--font-size-l);
+    text-transform: uppercase;
+    margin-top: 0;
+}

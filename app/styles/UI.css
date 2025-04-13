@@ -1,0 +1,44 @@
+.box__half {
+    padding: 0 10px;
+    max-width: 50%;
+}
+
+.pillar__container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -10000;
+}
+
+.bio_text{
+    display: none;
+}
+
+@media (max-width: 600px) {
+    body {
+        height: 100dvh;
+        max-height: 100%;
+        overflow-x: clip;
+    }
+
+    .box__half {
+        display: none;
+    }
+
+    .bio_text {
+        display: block
+    }
+
+    .about > p {
+        font-weight: 300;
+        text-transform: uppercase;
+        margin-top: 2px;
+    }
+
+    .pillar__container{
+        display: block;
+    }
+
+}

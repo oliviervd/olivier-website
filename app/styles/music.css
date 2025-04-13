@@ -1,0 +1,29 @@
+.music__container {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    left: 55svw;
+    top: 75px;
+}
+
+.player {
+    display: flex;
+    flex-flow: row;
+    gap: 10px;
+    justify-content: left;
+    align-items: center;
+    width: 90%;
+}
+
+.player > div > p {
+    margin: 0;
+}
+
+.play_pause-button {
+    height: 30px;
+    width: 30px;
+}
+
+.pause-icon {
+    display: none; /* Initially hide the pause icon */
+}

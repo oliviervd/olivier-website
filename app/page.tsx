@@ -1,103 +1,92 @@
-import Image from "next/image";
+'use client' // allow client-side rendering/
+
+import Header from "./components/Header";
+import About from "./components/About"
+import Projects from "./components/Projects";
+import Resume from "./components/Resume";
+import {useCachedPayload} from "@/app/utils/fetchPayload";
+import serialize from "./utils/serialize";
+import { useRouter } from "next/navigation";
+
+// P5
+import Pillar from "./sketches/Pillar";
+
+import {useState, useEffect} from "react";
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    let about = null;
+    const [var1, setVar1] = useState(Math.floor(Math.random() * 10))
+
+    // router
+    const router = useRouter()
+
+
+    // fetch data from DB
+    const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run'; //todo: move to .env
+    const { data: aboutData } = useCachedPayload(BASE_URI, "about", 10000);
+    const {data: resumeData} = useCachedPayload(BASE_URI,"resume", 1000);
+    const {data: musicData} = useCachedPayload(BASE_URI,"music", 1000);
+    const { data: pagesData } = useCachedPayload(BASE_URI, "page", 10000);
+
+
+    // state management
+    const [type, setType] = useState("home")
+    const [showResume, setShowResume] = useState(false);
+    const [showAbout, setShowAbout] = useState(true);
+
+    const resume = resumeData?.docs[0] || [];
+    const globals = aboutData?.docs || [];
+    const pages = pagesData?.docs || [];
+    const music = musicData?.docs || []
+
+    if (aboutData?.docs?.[0]?.bio) {
+        about = serialize(aboutData.docs[0].bio);
+    }
+
+    useEffect(() => {
+        cycle(); // Call cycle() when component mounts
+    }, []);
+
+    function toggleComponent(componentName: string) {
+        // function that toggles the view on the main page between different sections such as music, curatorial, cv, etc.
+        // todo: make so that the URL also changes. (query)
+        cycle(); // when clicked, change the P5js params.
+        setShowResume(componentName === "resume");
+        setType(componentName);
+        if (window.innerWidth < 600) {
+            setShowAbout(false)
+        }
+    }
+
+    function cycle() {
+        setVar1(Math.floor(Math.random() * 10))
+    }
+
+    return (
+        <div className={'main--container'}>
+            <Header toggleComponent={toggleComponent}/>
+            <>
+                {
+                    about && (
+                        <div className={"box__half"}>
+                            <About about={about}/>
+                        </div>
+                    )
+                }
+                {
+                    !showResume && (
+                        <div className={"projects__container"}>
+                            <Projects about={about} type={type} pages={pages} music={music}/>
+                        </div>
+                    )
+                }
+                <Resume resume={resume} globals={globals} show={showResume} about={about}/>
+            </>
+            <div className={"pillar__container"}>
+                <Pillar var1={var1}/>
+            </div>
+        </div >
+
+    );
 }
