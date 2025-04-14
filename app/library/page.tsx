@@ -6,13 +6,13 @@ export const metadata: Metadata = {
     description: "a virtual bookshelf / library of books",
     keywords: ["Olivier Van D'huynslager", "books", "p5", "P5", "creative coding", "culture"],
     openGraph: {
-        title: "Olivier Van D'huynslager",
+        title: "Olivier Van D'huynslager - Virtual Library",
         description: "a virtual bookshelf / library of books",
         url: "https://oliviervandhuynslager.net/library",
         type: "website",
         images: [
             {
-                url: "https://d3b71b8mgnztvw.cloudfront.net/bookshelf-UI-1024x639.png",
+                url: "https://d3b71b8mgnztvw.cloudfront.net/bookshelf-UI-1-1024x639.png",
                 alt: "dithered screenshot of the interface"
             }
         ]
