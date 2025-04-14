@@ -32,6 +32,7 @@ export default function Home() {
 
 
     // state management
+    const [menuOpen, setMenuOpen] = useState(false)
     const [type, setType] = useState("home")
     const [showResume, setShowResume] = useState(false);
     const [showAbout, setShowAbout] = useState(true);
@@ -72,7 +73,7 @@ export default function Home() {
 
     return (
         <div className={'main--container'}>
-            <Header toggleComponent={toggleComponent} home={true}/>
+            <Header toggleComponent={toggleComponent} home={true} toggleMenu={() => setMenuOpen(!menuOpen)}/>
             <>
                 {
                     about && (

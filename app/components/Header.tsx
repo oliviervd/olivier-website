@@ -43,7 +43,7 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
                 }
             </div>
             {props.home &&
-                <div>
+                <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("music")}><a>music</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("curatorial")}><a>curatorial</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("code")}><a>code</a></h1>
