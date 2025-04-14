@@ -34,7 +34,7 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
     return (
         <header className="header">
             <div className="header_logo">
-                <Link className="little-weave" href="/">⩨</Link>
+                <Link onClick={() => props.toggleComponent("home")} className="little-weave" href="/">⩨</Link>
                 <h1 className="typo_header">OVND</h1>
                 {readingNow.length > 0 && readingNow[currentIndex] && readingNow[currentIndex]["url"] &&
                     <h1 className={"typo_header reading"}> – is <span><Link href={"/library"}>reading</Link></span>: <span><a
