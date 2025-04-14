@@ -103,3 +103,23 @@
 
 }
 
+@media (max-width: 600px) {
+    .resume__container {
+        left: 15px;
+        right: 15px;
+        top: 80px;
+        height: fit-content;
+        border: none;
+        background-color: transparent;
+    }
+
+    .resume__container-divider {
+        border-top: orange 2px solid;
+    }
+
+    .experience, .education{
+        border-bottom: black solid 1px;
+    }
+
+}
+
