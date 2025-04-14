@@ -12,6 +12,7 @@ import { useRouter } from "next/navigation";
 import Pillar from "./sketches/Pillar";
 
 import {useState, useEffect} from "react";
+import type {Metadata} from "next";
 
 export default function Home() {
 
@@ -71,7 +72,7 @@ export default function Home() {
 
     return (
         <div className={'main--container'}>
-            <Header toggleComponent={toggleComponent}/>
+            <Header toggleComponent={toggleComponent} home={true}/>
             <>
                 {
                     about && (
