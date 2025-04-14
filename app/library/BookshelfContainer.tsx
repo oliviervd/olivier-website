@@ -99,6 +99,7 @@ export default function BookShelfContainer() {
                                             <a style={{color: tags.includes(o) ? "white" : "black"}} onClick={()=>handleTag(o)}>{o}</a>
                                         </div>
                                     )
+
                                 }
                             )}
                         </div>
