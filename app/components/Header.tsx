@@ -5,6 +5,7 @@ import { useCachedPayload } from '@/app/utils/fetchPayload';
 import {useState, useEffect} from "react"
 import {ThemeToggle} from "@/app/components/ThemeToggle";
 import Link from "next/link";
+import {HamburgerButton} from "@/app/components/HamburgerButton";
 
 export default function Header(props: { toggleComponent: (arg0: string) => void; header:boolean}) {
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
@@ -61,6 +62,9 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
                     </h1>
                 </div>
             }
+            <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
+                <HamburgerButton/>
+            </div>
         </header>
     );
 }

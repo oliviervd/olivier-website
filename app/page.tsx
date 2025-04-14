@@ -73,7 +73,7 @@ export default function Home() {
 
     return (
         <div className={'main--container'}>
-            <Header toggleComponent={toggleComponent} home={true} toggleMenu={() => setMenuOpen(!menuOpen)}/>
+            <Header globals={globals} toggleComponent={toggleComponent} home={true} toggleMenu={() => setMenuOpen(!menuOpen)}/>
             <>
                 {
                     about && (
