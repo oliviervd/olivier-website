@@ -55,7 +55,7 @@ export default function MusicPlayer(props: any) {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
                 >
-                    <polygon points="22,50 48,32 22,14" fill="#333" />
+                    <polygon points="22,50 48,32 22,14" fill="orange" />
                 </svg>
                 <svg
                     ref={pauseButtonRef}
@@ -63,8 +63,8 @@ export default function MusicPlayer(props: any) {
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 64 64"
                 >
-                    <rect x="22" y="14" width="10" height="36" fill="#333" />
-                    <rect x="38" y="14" width="10" height="36" fill="#333" />
+                    <rect x="22" y="14" width="10" height="36" fill="orange" />
+                    <rect x="38" y="14" width="10" height="36" fill="orange" />
                 </svg>
             </div>
             <div>

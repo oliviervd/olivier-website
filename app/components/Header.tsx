@@ -33,6 +33,15 @@ export default function Header(props: {
         }
     }, [readingNow]); // Empty dependency array means this effect runs once on mount
 
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkWidth = () => setIsMobile(window.innerWidth > 600);
+        checkWidth();
+        window.addEventListener("resize", checkWidth);
+        return () => window.removeEventListener("resize", checkWidth);
+    }, []);
+
     return (
         <header className="header">
             <div className="header_logo">
@@ -51,12 +60,8 @@ export default function Header(props: {
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("curatorial")}><a>curatorial</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("code")}><a>code</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("resume")}><a>cv</a></h1>
-                    <h1 className={"typo_header"} ><Link href="/library">library</Link></h1>
-
-                        <h1 className={"typo_header"}>
-                            <ThemeToggle/>
-                        </h1>
-
+                    {isMobile && (<h1 className={"typo_header"} ><Link href="/library">library</Link></h1>)}
+                    {isMobile && (<h1 className={"typo_header"}><ThemeToggle/></h1>)}
                 </div>
             }
             {!props.home &&

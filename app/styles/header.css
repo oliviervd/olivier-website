@@ -75,7 +75,6 @@ header > .header__nav {
         font-family: "IBMPlexMono-Light" ,serif;
         text-transform: uppercase;
         font-size: var(--font-size-m);
-        padding-right: 10px;
     };
 }
 
@@ -133,7 +132,6 @@ header > .header__nav {
         font-size: var(--font-size-l);
         text-align: center;
         margin: 10px 0;
-        transform: translateX(-2.5%)
     }
 
     .header__nav > .typo_header > a {

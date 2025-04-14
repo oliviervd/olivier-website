@@ -16,12 +16,13 @@
 .app.light {
   --bg-color: #ffffff;
   --text-color: #000000;
-  --highlight-color: blue;
+  --highlight-color: orange;
 }
 
 .app.dark {
   --bg-color: #000000;
   --text-color: white;
+  --highlight-color: orange;
 }
 
 body {

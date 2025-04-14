@@ -86,6 +86,7 @@ export default function Projects(props: any) {
                                     id={p.content.id}
                                     src={p.content.heroImage.sizes.tablet.url}
                                     alt={p.content.heroImage.alt}
+                                    data-pin-nopin="true"
                                 />
                             )}
                             <p className={"index--image"}>{index}</p>
