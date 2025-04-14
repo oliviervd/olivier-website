@@ -80,6 +80,10 @@
     & img:hover {
         filter: invert(75%);
     }
+
+    section {
+        border-bottom: 2px solid black;
+    }
 }
 
 @media (max-width: 1600px) {
