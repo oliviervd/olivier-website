@@ -1,11 +1,11 @@
 @font-face {
     font-family: "IBMPlexMono-Bold";
-    src: local("IBMPlexMono-Bold"), url("/fonts/IBMPlexMono-Bold.otf") format("woff")
+    src: local("IBMPlexMono-Bold"), url("/fonts/IBMPlexMono-Light.otf") format("otf")
 }
 
 @font-face {
     font-family: "IBMPlexMono-Light";
-    src: local("IBMPlexMono-Light"), url("/fonts/IBMPlexMono-Light.otf") format("woff")
+    src: local("IBMPlexMono-Light"), url("/fonts/IBMPlexMono-Light.otf") format("otf")
 }
 
 :root {
