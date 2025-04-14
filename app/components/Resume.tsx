@@ -4,7 +4,6 @@ export default function Resume(props: { resume: any; show: any; globals: { [x: s
     // todo: add function for generating and downloading pdf?
     // function that constructs the resume based on the data in payload
     let r = props.resume;
-    console.log(props.show);
 
     if (r && r.intro) {
         return (

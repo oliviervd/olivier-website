@@ -51,8 +51,6 @@ export default function BookShelfContainer() {
         );
     }
 
-    console.log(tags)
-
     for (let i = 0; i < books.length; i += 10) {
         pages += books[i]["pages"] || []
     }

@@ -57,6 +57,7 @@ export default function Home() {
         cycle(); // when clicked, change the P5js params.
         setShowResume(componentName === "resume");
         setType(componentName);
+        setMenuOpen(false);
         if (window.innerWidth < 600) {
             setShowAbout(false)
         }
@@ -73,17 +74,17 @@ export default function Home() {
 
     return (
         <div className={'main--container'}>
-            <Header globals={globals} toggleComponent={toggleComponent} home={true} toggleMenu={() => setMenuOpen(!menuOpen)}/>
+            <Header globals={globals} toggleComponent={toggleComponent} home={true} toggleMenu={() => setMenuOpen(!menuOpen)} open={menuOpen}/>
             <>
                 {
-                    about && (
+                    about && !menuOpen && (
                         <div className={"box__half"}>
                             <About about={about}/>
                         </div>
                     )
                 }
                 {
-                    !showResume && (
+                    !showResume && !menuOpen && (
                         <div className={"projects__container"}>
                             <Projects about={about} type={type} pages={pages} music={music} scrollToID={scrollToID}/>
                         </div>

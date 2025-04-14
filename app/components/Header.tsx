@@ -7,7 +7,9 @@ import {ThemeToggle} from "@/app/components/ThemeToggle";
 import Link from "next/link";
 import {HamburgerButton} from "@/app/components/HamburgerButton";
 
-export default function Header(props: { toggleComponent: (arg0: string) => void; header:boolean}) {
+export default function Header(props: { toggleComponent: (arg0: string) => void; header:boolean
+    toggleMenu(): any;
+}) {
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
     const { data: booksData, isLoading, error } = useCachedPayload(BASE_URI, 'book', 10000);
     const readingNow = booksData?.docs.filter((book) => book.reading) || [];
@@ -29,8 +31,6 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
         }
     }, [readingNow]); // Empty dependency array means this effect runs once on mount
 
-    console.log(readingNow);
-
     return (
         <header className="header">
             <div className="header_logo">
@@ -44,7 +44,7 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
                 }
             </div>
             {props.home &&
-                <div className={!props.menuOpen ? "header__nav off-screen" : "header__nav on-screen"}>
+                <div className={!props.open ? "header__nav off-screen" : "header__nav on-screen"}>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("music")}><a>music</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("curatorial")}><a>curatorial</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("code")}><a>code</a></h1>
@@ -62,8 +62,8 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
                     </h1>
                 </div>
             }
-            <div onClick={() => props.toggleMenu()} className={"header__nav-button"}>
-                <HamburgerButton/>
+            <div className={"header__nav-button"}>
+                <HamburgerButton toggle={props.toggleMenu} />
             </div>
         </header>
     );
