@@ -15,7 +15,6 @@ export default function Projects(props: any) {
         }
     }, [props.pages, props.type]); // Re-run effect if library or type changes
 
-
     useEffect(() => {
         if (props.scrollToID) {
             scroller(props.scrollToID); // Call scrollToID logic if provided

@@ -7,9 +7,11 @@ import {ThemeToggle} from "@/app/components/ThemeToggle";
 import Link from "next/link";
 import {HamburgerButton} from "@/app/components/HamburgerButton";
 
-export default function Header(props: { toggleComponent: (arg0: string) => void; header:boolean
-    toggleMenu(): any;
-}) {
+export default function Header(props: {
+        toggleComponent: (arg0: string) => void;
+        header:boolean
+        toggleMenu(): any;
+    }) {
     const BASE_URI = 'https://p01--admin--cvvgvqwlxhx2.code.run';
     const { data: booksData, isLoading, error } = useCachedPayload(BASE_URI, 'book', 10000);
     const readingNow = booksData?.docs.filter((book) => book.reading) || [];
@@ -50,9 +52,11 @@ export default function Header(props: { toggleComponent: (arg0: string) => void;
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("code")}><a>code</a></h1>
                     <h1 className={"typo_header"} onClick={() => props.toggleComponent("resume")}><a>cv</a></h1>
                     <h1 className={"typo_header"} ><Link href="/library">library</Link></h1>
-                    <h1 className={"typo_header"}>
-                        <ThemeToggle/>
-                    </h1>
+
+                        <h1 className={"typo_header"}>
+                            <ThemeToggle/>
+                        </h1>
+
                 </div>
             }
             {!props.home &&

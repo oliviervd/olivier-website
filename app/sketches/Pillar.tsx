@@ -34,10 +34,12 @@ class Pillar extends Component {
         var elementsX = 10;
         var elementsY = 100;
         let var1 = this.props.var1; // Store var1 as a local variable
-        let color = p.color("orange")
+        let color = p.color("orange");
+        color.setAlpha(100);
 
         if (window.innerWidth <= 600) {
             color = p.color("#f9f1f1")
+            //color.setAlpha(230);
         }
 
 
