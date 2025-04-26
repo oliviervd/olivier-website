@@ -60,7 +60,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/headshot-dither-oliver.jpeg",
+                url: "/headshot-dither-oliver.png",
                 alt: "headshot of Olivier Van D'huynslager",
                 type: "image/png",
                 width: 1051,
