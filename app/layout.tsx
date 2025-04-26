@@ -53,20 +53,36 @@ export const metadata: Metadata = {
     ],
     openGraph: {
         title: "Olivier Van D'huynslager",
+        siteName: "Olivier Van D'huynslager",
+        locale: "en_US",
         description: "Personal website and portfolio of Olivier Van D'huynslager; a curator and strategist based in Gent, Belgium. Currently working at Design Museum Gent, his work is driven by the intricate relationships between digital technology and design.",
         url: "https://oliviervandhuynslager.net",
         type: "website",
         images: [
             {
-                url: "https://d3b71b8mgnztvw.cloudfront.net/headshot-dither",
-                alt: "headshot of Olivier Van D'huynslager"
+                url: "/headshot-dither-oliver.jpeg",
+                alt: "headshot of Olivier Van D'huynslager",
+                type: "image/png",
+                width: 1051,
+                height: 976
             }
         ]
     },
     other: {
     "google-site-verification": "1dEJnMXmVc9ditPgQL6TNdseYy2jOxAJ_7sjNPJCQgo",
         "application/ld+json": JSON.stringify(jsonLd),
-}   ,
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
+    },
 };
 
 
