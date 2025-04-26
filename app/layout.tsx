@@ -32,7 +32,13 @@ const jsonLd = {
         "https://www.linkedin.com/in/oliviervandhuynslager",
         "https://github.com/oliviervd",
         "https://medium.com/@oliviervandhuynslager",
-        "https://www.instagram.com/olivier_vandh/"
+        "https://www.instagram.com/olivier_vandh/",
+        "https://www.facebook.com/olivier.vandhuynslager.7/",
+        "https://www.researchgate.net/profile/Olivier-Van-Dhuynslager",
+        "https://ovnd.bandcamp.com/",
+        "https://www.imdb.com/name/nm7693023/",
+        "https://www.kunsten.be/auteurs/olivier-van-dhuynslager/",
+        "https://pro.europeana.eu/person/olivier-van-d-huynslager"
     ],
 };
 
@@ -60,7 +66,7 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/headshot-dither-oliver.png",
+                url: "/headshot-dither-olivier.png",
                 alt: "headshot of Olivier Van D'huynslager",
                 type: "image/png",
                 width: 1051,
