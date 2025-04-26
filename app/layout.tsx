@@ -13,6 +13,29 @@ import QueryProvider from "@/app/context/QueryProvider";
 import {ThemeProvider} from "@/app/context/ThemeProvider";
 import Head from "next/head";
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Olivier Van D'huynslager",
+    "alternateName": "oliviervandhuynslager",
+    "url": "https://oliviervandhuynslager.net",
+    "jobTitle": "Curator and Digital Strategist",
+    "affiliation": {
+        "@type": "Organization",
+        "name": "Design Museum Gent",
+    },
+    "worksFor": {
+        "@type": "Organization",
+        "name": "Design Museum Gent"
+    },
+    "sameAs": [
+        "https://www.linkedin.com/in/oliviervandhuynslager",
+        "https://github.com/oliviervd",
+        "https://medium.com/@oliviervandhuynslager",
+        "https://www.instagram.com/olivier_vandh/"
+    ],
+};
+
 export const metadata: Metadata = {
     title: "Olivier Van D'huynslager",
     description: "Personal website and portfolio of Olivier Van D'huynslager; a curator and strategist based in Gent, Belgium. Currently working at Design Museum Gent, his work is driven by the intricate relationships between digital technology and design.",
@@ -39,7 +62,11 @@ export const metadata: Metadata = {
                 alt: "headshot of Olivier Van D'huynslager"
             }
         ]
-    }
+    },
+    other: {
+    "google-site-verification": "1dEJnMXmVc9ditPgQL6TNdseYy2jOxAJ_7sjNPJCQgo",
+        "application/ld+json": JSON.stringify(jsonLd),
+}   ,
 };
 
 
@@ -49,27 +76,12 @@ export default function RootLayout({
     children: React.ReactNode;
 }>) {
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "Person",
-        "name": "Olivier Van D'huynslager",
-        "alternateName": "oliviervandhuynslager",
-        "url": "https://oliviervandhuynslager.net",
-        "jobTitle": "Curator and Digital Strategist",
-        "affiliation": {
-            "@type": "Organization",
-            "name": "Design Museum Gent",
-        },
-    };
+
 
 
     return (
         <html lang="en">
         <Head>
-            <meta name="google-site-verification" content="1dEJnMXmVc9ditPgQL6TNdseYy2jOxAJ_7sjNPJCQgo" />
-            <script type="application/ld+json"
-                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-            ></script>
         </Head>
         <body>
         <ThemeProvider>
