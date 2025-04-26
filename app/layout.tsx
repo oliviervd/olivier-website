@@ -66,9 +66,9 @@ export const metadata: Metadata = {
         type: "website",
         images: [
             {
-                url: "/headshot-dither-olivier.png",
+                url: "/headshot-dither-olivier",
                 alt: "headshot of Olivier Van D'huynslager",
-                type: "image/png",
+                type: "image/jpeg",
                 width: 1051,
                 height: 976
             }
@@ -103,8 +103,6 @@ export default function RootLayout({
 
     return (
         <html lang="en">
-        <Head>
-        </Head>
         <body>
         <ThemeProvider>
             {/* Wrap your entire app with QueryClientProvider */}
